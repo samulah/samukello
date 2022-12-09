@@ -1,0 +1,33 @@
+import time
+
+def clock(second_duration=600, minute_duration=100):
+    # Start the clock at 0 seconds, 0 minutes, and 0 milliseconds
+    seconds = 0
+    minutes = 0
+    milliseconds = 0
+    
+    while True:
+        # Print the current time
+        print(f"{minutes:02}:{seconds:02}:{milliseconds:03}")
+        
+        # Sleep for 1 millisecond
+        time.sleep(0.001)
+        
+        # Increment the number of milliseconds
+        milliseconds += 1
+        
+        # If the number of milliseconds reaches the duration of a second, reset it to 0 and increment the number of seconds
+        if milliseconds == second_duration:
+            milliseconds = 0
+            seconds += 1
+            
+        # If the number of seconds reaches 60, reset it to 0 and increment the number of minutes
+        if seconds == 60:
+            seconds = 0
+            minutes += 1
+            
+        # If the number of minutes reaches the duration of an hour, reset it to 0
+        if minutes == minute_duration:
+            minutes = 0
+            
+clock(second_duration=600, minute_duration=100)
